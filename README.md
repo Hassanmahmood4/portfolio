@@ -4,7 +4,8 @@ This repository contains the source code for a personal 3D portfolio built with 
 
 Live site: add your deployed URL after publishing (for example Netlify or Vercel).
 
-![Portfolio Preview](public/images/preview1.png)
+<img width="1280" height="760" alt="image" src="https://github.com/user-attachments/assets/d827ee35-fe69-4611-94df-7ae0f7978d8e" />
+
 
 ## Table of Contents
 
