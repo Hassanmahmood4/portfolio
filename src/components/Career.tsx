@@ -15,58 +15,55 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Co-Founder</h4>
-                <h5>CallHQ.ai</h5>
+                <h4>Software Developer</h4>
+                <h5>Current focus</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Building CallHQ.ai, a voice AI platform for
-              automating customer calls, support, and conversions.
+              Building and shipping web products end to end—thoughtful UX,
+              maintainable codebases, and reliable APIs—with emphasis on
+              performance, accessibility, and collaboration.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Adobe</h4>
-                <h5>6+ years · Noida</h5>
+                <h4>Full-stack engineering</h4>
+                <h5>Product &amp; delivery</h5>
               </div>
-              <h3>2017–24</h3>
+              <h3>Recent</h3>
             </div>
             <p>
-              Senior Lead Software Engineer (Feb 2024 – May 2024). Lead Software
-              Engineer (Feb 2021 – Feb 2024). Software Engineer II (Dec 2017 –
-              Feb 2021): internationalization, globalization, and localization for
-              Adobe Technical Communication Suite; functional and linguistic testing
-              strategy; in-house tooling; collaboration with product and engineering
-              for high-quality localized releases.
+              Delivering features across the stack: front-end interfaces,
+              services and data layers, integrations, and deployment workflows
+              alongside design and product partners.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Consultant</h4>
-                <h5>Genpact Headstrong </h5>
+                <h4>Software engineering</h4>
+                <h5>Web &amp; applications</h5>
               </div>
-              <h3>2016–17</h3>
+              <h3>Earlier</h3>
             </div>
             <p>
-              Sep 2016 – Nov 2017. Developed and maintained WCF services consumed
-              by the UI; deployment support across environments; NUnit tests and
-              coverage; bug fixes from QA and users; database work.
+              Progressive responsibility across application development, tooling,
+              testing, and iteration based on user and stakeholder feedback.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Sf Engineer</h4>
-                <h5>Infogain</h5>
+                <h4>Foundations</h4>
+                <h5>Computer science &amp; practice</h5>
               </div>
-              <h3>2013-16</h3>
+              <h3>Start</h3>
             </div>
             <p>
-              Software engineering across enterprise projects, contributing to
-              design, development, and delivery of business applications.
+              Strong grounding in software fundamentals, data structures, and
+              engineering practice—carried into every role and project since.
             </p>
           </div>
         </div>

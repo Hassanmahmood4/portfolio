@@ -30,6 +30,10 @@
   letter-spacing: 1px;
 }
 
+.about-me p + p {
+  margin-top: 1.1em;
+}
+
 @media only screen and (min-width: 600px) {
   .about-section {
     justify-content: center;
