@@ -1,3 +1,31 @@
+/* Full-viewport shell: explicit height so % on Canvas/R3F root is never 0×0 */
+.webgl-root {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.webgl-root > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.webgl-root canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  /* Promote compositing layer; helps some Chromium/macOS builds composite alpha WebGL over HTML. */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 .section-container {
   width: 1300px;
 }

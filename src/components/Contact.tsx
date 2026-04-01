@@ -9,59 +9,37 @@ const Contact = () => {
         <div className="contact-flex">
           <div className="contact-box">
             <h4>Connect</h4>
-            <p>
+            <div className="contact-links">
               <a
                 href="https://www.linkedin.com/in/hassanmahmood/"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 data-cursor="disable"
+                className="contact-link"
               >
-                LinkedIn — hassanmahmood
+                LinkedIn <MdArrowOutward className="contact-link-icon" />
               </a>
+              <a
+                href="https://github.com/Hassanmahmood4"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="disable"
+                className="contact-link"
+              >
+                GitHub <MdArrowOutward className="contact-link-icon" />
+              </a>
+            </div>
+            <h4 className="contact-education-heading">Education</h4>
+            <p className="contact-summary">
+              Computer Engineering student with a strong focus on software
+              development—building practical experience across the full stack, from
+              interfaces and APIs to data and deployment. Actively deepening skills
+              in machine learning to design features that are both reliable and
+              intelligent, and to connect classroom foundations with real-world
+              product thinking.
             </p>
-            <h4>Education</h4>
-            <p>Add your degree, institution, and years here.</p>
           </div>
-          <div className="contact-box">
-            <h4>Social</h4>
-            <a
-              href="https://github.com/hassanmahmood"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              GitHub <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/hassanmahmood/"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              LinkedIn <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.youtube.com/@hassanmahmood"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              YouTube <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/hassanmahmood/"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
+          <div className="contact-box contact-box--credit">
             <h2>
               Designed and Developed <br /> by <span>Hassan Mahmood</span>
             </h2>

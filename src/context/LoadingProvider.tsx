@@ -29,7 +29,8 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
   return (
     <LoadingContext.Provider value={value as LoadingType}>
       {isLoading && <Loading percent={loading} />}
-      <main className="main-body">{children}</main>
+      {/* Canvas / non-DOM layers must stay outside <main>: .main-active sets opacity:0 during intro fade */}
+      {children}
     </LoadingContext.Provider>
   );
 };

@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 :root {
   font-family: "Geist", sans-serif;
 
@@ -37,6 +42,23 @@ body {
   overflow: hidden;
 }
 
+/* ScrollSmoother is disabled on Safari; body must scroll natively or the page looks “stuck”. */
+html.js-native-scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: auto;
+  min-height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+html.js-native-scroll body {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;
@@ -48,17 +70,27 @@ a:hover {
 
 main {
   opacity: 1;
-  transition: 0.3s;
+  transition: opacity 0.3s ease;
 }
 
+/* Full from→to keyframes: Safari can leave opacity stuck if only 100% is defined.
+   prefers-reduced-motion: keep page visible (Safari/iOS often disables animations). */
 .main-active {
-  opacity: 0;
-  animation: fadeIn 1s 1;
-  animation-fill-mode: forwards;
+  animation: fadeInMain 1s ease forwards;
 }
 
-@keyframes fadeIn {
-  100% {
+@keyframes fadeInMain {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-active {
+    animation: none;
     opacity: 1;
   }
 }
@@ -75,6 +107,8 @@ body {
 }
 
 .main-body {
+  position: relative;
+  z-index: 1;
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -111,6 +145,20 @@ body {
   margin: auto;
   margin-top: 50px;
   margin-bottom: -100px;
+}
+
+.tech-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.character-model-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .techstack h2 {

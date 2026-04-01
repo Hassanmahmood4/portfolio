@@ -1,9 +1,4 @@
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-} from "react-icons/fa6";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import { useEffect } from "react";
@@ -61,7 +56,7 @@ const SocialIcons = () => {
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
           <a
-            href="https://github.com/hassanmahmood"
+            href="https://github.com/Hassanmahmood4"
             target="_blank"
             rel="noreferrer"
           >
@@ -75,24 +70,6 @@ const SocialIcons = () => {
             rel="noreferrer"
           >
             <FaLinkedinIn />
-          </a>
-        </span>
-        <span>
-          <a
-            href="https://www.youtube.com/@hassanmahmood"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaYoutube />
-          </a>
-        </span>
-        <span>
-          <a
-            href="https://www.instagram.com/hassanmahmood/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaInstagram />
           </a>
         </span>
       </div>

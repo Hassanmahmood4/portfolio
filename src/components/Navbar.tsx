@@ -1,15 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { needsNativeScrollFallback } from "../utils/browser";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+export let smoother: ScrollSmoother | undefined;
 
 const Navbar = () => {
+  const nativeScrollRef = useRef(needsNativeScrollFallback());
+  const nativeScroll = nativeScrollRef.current;
+
+  useLayoutEffect(() => {
+    if (!nativeScroll) return;
+    document.documentElement.classList.add("js-native-scroll");
+    return () => {
+      document.documentElement.classList.remove("js-native-scroll");
+    };
+  }, [nativeScroll]);
+
   useEffect(() => {
+    if (nativeScroll) {
+      smoother = undefined;
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+      return;
+    }
+
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
@@ -23,22 +41,33 @@ const Navbar = () => {
     smoother.scrollTop(0);
     smoother.paused(true);
 
-    let links = document.querySelectorAll(".header ul a");
+    const links = document.querySelectorAll(".header ul a");
+    const onNavClick = (e: Event) => {
+      if (window.innerWidth > 1024) {
+        e.preventDefault();
+        const el = e.currentTarget as HTMLAnchorElement;
+        const section = el.getAttribute("data-href");
+        smoother?.scrollTo(section, true, "top top");
+      }
+    };
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
+      elem.addEventListener("click", onNavClick);
     });
-    window.addEventListener("resize", () => {
+    const onResize = () => {
       ScrollSmoother.refresh(true);
-    });
-  }, []);
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      links.forEach((elem) => {
+        elem.removeEventListener("click", onNavClick);
+      });
+      smoother?.kill();
+      smoother = undefined;
+    };
+  }, [nativeScroll]);
+
   return (
     <>
       <div className="header">
@@ -73,8 +102,6 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
       <div className="nav-fade"></div>
     </>
   );
